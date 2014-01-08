@@ -1,4 +1,3 @@
-"colorscheme evening
 
 "for vundle 
 set nocompatible
@@ -22,21 +21,24 @@ Bundle "scrooloose/syntastic"
 Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'kien/ctrlp.vim'
+Bundle 'vim-scripts/Conque-Shell'
 " " The rest of your config follows here
 syntax on
 filetype plugin indent on
 colorscheme 256-jungle
 " Super tab completion
-"au FileType python set omnifunc=pythoncomplete#Complete
+au FileType python set omnifunc=pythoncomplete#Complete
+au BufRead,BufNewFile today set filetype=today
+au FileType today set linebreak | set spell | map <F9> :!ls %<CR> | colorscheme nature
 "let g:SuperTabDefaultCompletionType = "context"
 
+au FileType tex set linebreak | set spell | map <F9> :!pdflatex %<CR>
 " Mapping
 map <F2> :NERDTreeToggle<CR>
-map <F9> :!pdflatex %<CR>
 
 let g:tex_flavor='latex'
 let g:LatexBox_viewer = "evince"
-
+let g:LatexBox_latexmk_options = "-pvc -pdfps"
 "
 "  cscope map file
 "
@@ -49,4 +51,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
-map <C-V> :exe "Cdbgvar " . expand("<cword>") <CR>
+map <leader>v :exe "Cdbgvar " . expand("<cword>") <CR>
+
+set number
+

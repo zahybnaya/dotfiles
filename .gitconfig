@@ -3,3 +3,6 @@
 	guitool = meld
 [merge]
 	tool = meld
+[user]
+	name = Zahy Bnaya
+	email = zahy.bnaya@gmail.com

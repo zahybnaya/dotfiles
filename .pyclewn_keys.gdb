@@ -33,7 +33,8 @@
  C-B : break "${fname}":${lnum} # set breakpoint at current line
  C-D : down
  C-E : clear "${fname}":${lnum} # clear breakpoint at current line
- C-S-P : print ${text}            # print value of selection at mouse position
+ C-S-K : print ${text}            # print value of selection at mouse position 
+ C-P :
  C-U : up
  C-X : print *${text}           # print value referenced by word at mouse position
  C-Z : sigint                   # kill the inferior running program
@@ -44,8 +45,8 @@
  F6 : next
  F7 : step
  C-F7 : finish
- F8 : run
- F9  : start
+ F8 : run                       # runs the program. runtime arguments come here. 
+ F9  : start                    # breakpoint on first line and then run
  C-L : info locals
  C-Q : quit
  S-W : where
