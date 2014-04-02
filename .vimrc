@@ -12,7 +12,9 @@ Bundle 'klen/python-mode'
 Bundle 'LaTeX-Box'
 Bundle 'brookhong/cscope.vim'
 Bundle 'Valloric/YouCompleteMe' 
+Bundle 'kakkyz81/evervim.git'
 "Bundle 'ervandew/supertab'
+Bundle 'jcfaria/Vim-R-plugin'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
@@ -28,11 +30,21 @@ syntax on
 filetype plugin indent on
 colorscheme 256-jungle 
 colorscheme made_of_code 
+let g:evervim_devtoken='S=s213:U=1638c59:E=14be0f5ead3:C=1448944bed6:P=1cd:A=en-devtoken:V=2:H=2cae464dbb2c147e067f77a73720d5b2'
+au FileType python map <F9> :Pyclewn pdb %<CR>:Cmapkeys<CR> | set tabstop=4 | set shiftwidth=4| set softtabstop=4| set expandtab |
 
-au FileType python set omnifunc=pythoncomplete#Complete
+"  Pymode config
+let g:pymode = 1
+let g:pymode_folding = 0
+"let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+
+
 au BufRead,BufNewFile today set filetype=today
 au FileType today set linebreak | set spell | map <F9> :!ls %<CR> | colorscheme nature
-au FileType tex set linebreak | set spell | map <F9> :!pdflatex %<CR>| colorscheme kaltex
+"au FileType tex set linebreak | set spell | map <F9> :!pdflatex %<CR> | map <C-e> bi\emph{<ESC>ea}<ESC> | colorscheme whitebox
+
+
 
 " Mapping
 map <F2> :NERDTreeToggle<CR>
