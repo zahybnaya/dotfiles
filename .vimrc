@@ -37,12 +37,11 @@ au FileType python map <F9> :Pyclewn pdb %<CR>:Cmapkeys<CR> | set tabstop=4 | se
 let g:pymode = 1
 let g:pymode_folding = 0
 "let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_checkers = ['pyflakes', 'mccabe']
+let g:pymode_lint_checkers = ['pyflakes', 'mccabe', 'pep8']
 
 
 au BufRead,BufNewFile today set filetype=today
 au FileType today set linebreak | set spell | map <F9> :!ls %<CR> | colorscheme nature
-"au FileType tex set linebreak | set spell | map <F9> :!pdflatex %<CR> | map <C-e> bi\emph{<ESC>ea}<ESC> | colorscheme whitebox
 
 
 
@@ -52,28 +51,6 @@ map <F3> :TlistToggle<CR>
 
 let g:Tlist_Show_One_File=1
 let Tlist_GainFocus_On_ToggleOpen=1
-let g:tex_flavor='latex'
-let g:LatexBox_viewer = "evince"
-let g:LatexBox_latexmk_options = "-pvc -pdfps"
-"
-"  cscope map file
-"
-source ~/.cscope_maps.vim 
-	if has("cscope")
-		set csprg=/usr/local/bin/cscope
-		set csto=0
-		set cst
-		set nocsverb
-		" add any database in current directory
-		if filereadable("cscope.out")
-		    cs add cscope.out
-		" else add database pointed to by environment
-		elseif $CSCOPE_DB != ""
-		    cs add $CSCOPE_DB
-		endif
-		set csverb
-	endif
-
 " Close window after selection 
 let g:ycm_autoclose_preview_window_after_completion = 1
 
@@ -81,7 +58,6 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
-map <leader>v :exe "Cdbgvar " . expand("<cword>") <CR>
 
 set number
 
