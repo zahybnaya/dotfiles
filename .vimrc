@@ -3,10 +3,10 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle  required!
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 Bundle 'klen/python-mode'
 Bundle 'LaTeX-Box'
